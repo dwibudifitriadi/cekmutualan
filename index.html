@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Follower Checker</title>
+    <script src="app.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-5">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl font-bold mb-4 text-center">Unggah File JSON</h2>
+
+            <form id="fileForm" class="space-y-4">
+                <div>
+                    <label class="block my-2 text-gray-700">Followers File (followers_1.json):</label>
+                    <input type="file" id="followersFile" accept=".json" class="block w-full text-sm text-slate-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-md file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-violet-50 file:text-violet-700
+                    hover:file:bg-violet-100
+              ">
+                </div>
+
+                <div>
+                    <label class="block my-2 text-gray-700">Following File (following.json):</label>
+                    <input type="file" id="followingFile" accept=".json" class="block w-full text-sm text-slate-500
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-md file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-violet-50 file:text-violet-700
+                    hover:file:bg-violet-100
+              ">
+                </div>
+
+                <button type="button" id="processButton" class="bg-blue-500 hover:bg-blue-600 text-white py-2 w-full px-4 rounded-md">
+                    Proses File
+                </button>
+                <p class="text-center text-gray-500">Created by @dwibudifitriadi</p>
+            </form>
+
+            <div id="results" class="mt-6"></div>
+        </div>
+    </div>
+</body>
+</html>
