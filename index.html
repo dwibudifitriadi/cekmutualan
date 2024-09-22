@@ -3,45 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cek Mutualan</title>
+    <title>Cek Mutualan Aja</title>
     <script src="app.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gradient-to-r from-blue-500 via-sky-400 to-sky-300 text-white">
     <div class="container mx-auto p-5">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-xl font-bold mb-4 text-center">Unggah File JSON</h2>
+        <div class="p-6 rounded-xl shadow-md h-full w-full bg-blue-800 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100">
+            <h2 class="text-xl font-bold mb-4 text-center">Cek Mutualan IG 😁</h2>
 
-            <form id="fileForm" class="space-y-4">
+            <form id="fileForm" class="space-y-4 ">
                 <div>
-                    <label class="block my-2 text-gray-700">Followers File (followers_1.json):</label>
-                    <input type="file" id="followersFile" accept=".json" class="block w-full text-sm text-slate-500
+                    <label class="block my-2">Followers File (followers_1.json):</label>
+                    <input type="file" id="followersFile" accept=".json" class="block w-full text-sm text-slate-300
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-md file:border-0
                     file:text-sm file:font-semibold
-                    file:bg-violet-50 file:text-violet-700
-                    hover:file:bg-violet-100
+                    file:bg-blue-50 file:text-blue-700
+                    hover:file:bg-blue-100
               ">
                 </div>
 
                 <div>
-                    <label class="block my-2 text-gray-700">Following File (following.json):</label>
-                    <input type="file" id="followingFile" accept=".json" class="block w-full text-sm text-slate-500
+                    <label class="block my-2">Following File (following.json):</label>
+                    <input type="file" id="followingFile" accept=".json" class="block w-full text-sm text-slate-300
                     file:mr-4 file:py-2 file:px-4
                     file:rounded-md file:border-0
                     file:text-sm file:font-semibold
-                    file:bg-violet-50 file:text-violet-700
-                    hover:file:bg-violet-100
+                    file:bg-blue-50 file:text-blue-700
+                    hover:file:bg-blue-100
               ">
                 </div>
 
-                <button type="button" id="processButton" class="bg-blue-500 hover:bg-blue-600 text-white py-2 w-full px-4 rounded-md">
-                    Proses File
+                <button type="button" id="processButton" class="bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-white py-2 w-full px-4 rounded-md border">
+                    Coba Cek
                 </button>
-                <p class="text-center text-gray-500">Created by @dwibudifitriadi</p>
+                <p class="text-center text-gray-100 font-sm">created by <a href="https://www.Instagram.com/dwibudifitriadi" class="underline">@dwibudifitriadi</a></p>
             </form>
 
-            <div id="results" class="mt-6"></div>
+            <div id="results"></div>
         </div>
     </div>
 </body>
