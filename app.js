@@ -29,7 +29,7 @@ async function memprosesfile() {
     resultsDiv.innerHTML = ""; 
 
     if (!followersFile || !followingFile) {
-        resultsDiv.innerHTML = '<p class="text-red-500">Harap unggah kedua file JSON terlebih dahulu.</p>';
+        resultsDiv.innerHTML = '<p class="text-red-100 text-center">Harap unggah kedua file JSON terlebih dahulu.</p>';
         return;
     }
 
@@ -43,7 +43,7 @@ async function memprosesfile() {
         const notFollowingBack = [...followingUsernames].filter(username => !followersUsernames.has(username));
 
         if (notFollowingBack.length > 0) {
-            resultsDiv.innerHTML = `<p class="text-green-500">Ada ${notFollowingBack.length} akun yang tidak mengikuti kembali:</p>`;
+            resultsDiv.innerHTML = `<p class="text-gray-100">Ada ${notFollowingBack.length} akun yang tidak mengikuti kembali:</p>`;
             const list = document.createElement('ul');
             list.className = 'list-disc ml-6 mt-2';
             notFollowingBack.forEach(username => {
@@ -52,7 +52,7 @@ async function memprosesfile() {
                 link.href = `https://www.instagram.com/${username}`;
                 link.textContent = username;
                 link.target = "_blank";
-                link.className = 'text-blue-500 hover:underline';
+                link.className = 'text-gray-100 underline';
                 listItem.appendChild(link);
                 list.appendChild(listItem);
             });
