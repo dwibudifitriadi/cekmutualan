@@ -56,6 +56,7 @@ async function memprosesfile() {
                 link.className = 'dm-mono-regular underline';
                 listItem.appendChild(link);
                 list.appendChild(listItem);
+                resultsDiv.className ="mb-8";
             });
             resultsDiv.appendChild(list);
         } else {
