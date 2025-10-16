@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="src/style.css">
     <style>
         .dm-mono-light {
             font-family: "DM Mono", monospace;
@@ -91,7 +91,6 @@
 
         .stat-card {
             border: 2px solid #000;
-            background: white;
         }
     </style>
 </head>
@@ -174,11 +173,11 @@
             <div class="lg:col-span-2 space-y-6">
                 <!-- Stats Row -->
                 <div class="grid grid-cols-3 gap-4">
-                    <div class="stat-card p-4 text-center">
+                    <div class="stat-card p-4 text-center bg-white">
                         <div class="text-3xl dm-mono-medium" id="followingCount">0</div>
                         <div class="dm-mono-regular text-sm mt-1">FOLLOWING</div>
                     </div>
-                    <div class="stat-card p-4 text-center">
+                    <div class="stat-card p-4 text-center bg-white">
                         <div class="text-3xl dm-mono-medium" id="followersCount">0</div>
                         <div class="dm-mono-regular text-sm mt-1">FOLLOWERS</div>
                     </div>
