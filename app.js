@@ -95,10 +95,7 @@
                             ${sortedNotFollowingBack.map(username => `
                                 <div class="account-card p-4">
                                     <div class="flex items-center justify-between">
-                                        <div class="flex items-center space-x-4">
-                                            <div class="w-10 h-10 bg-black text-yellow-300 rounded-full flex items-center justify-center dm-mono-medium">
-                                                ${username.charAt(0).toUpperCase()}
-                                            </div>
+                                        <div class="flex items-center space-x-4 text-sm">             
                                             <div>
                                                 <a href="https://www.instagram.com/${username}" 
                                                    target="_blank" 
@@ -207,3 +204,4 @@ Coba di: ${window.location.href}`;
                 });
             });
         });
+
