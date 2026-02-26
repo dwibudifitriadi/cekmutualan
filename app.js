@@ -1,17 +1,17 @@
- function loadFileAsJSON(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    try {
-                        const json = JSON.parse(event.target.result);
-                        resolve(json);
-                    } catch (error) {
-                        reject("Error parsing JSON file: " + error.message);
-                    }
-                };
-                reader.onerror = () => reject("Error reading file");
-                reader.readAsText(file);
-            });
+ async function extractJSONFromZip(zipFile, filePath) {
+            try {
+                const zip = await JSZip.loadAsync(zipFile);
+                const file = zip.file(filePath);
+                
+                if (!file) {
+                    throw new Error(`File tidak ditemukan: ${filePath}`);
+                }
+                
+                const content = await file.async('text');
+                return JSON.parse(content);
+            } catch (error) {
+                throw new Error(`Error extracting ${filePath}: ${error.message}`);
+            }
         }
 
         function loadFollowing(data) {
@@ -41,19 +41,18 @@
         }
 
         async function memprosesfile() {
-            const followersFile = document.getElementById('followersFile').files[0];
-            const followingFile = document.getElementById('followingFile').files[0];
+            const zipFile = document.getElementById('zipFile').files[0];
             const resultsDiv = document.getElementById('results');
             const processButton = document.getElementById('processButton');
             const statusText = document.getElementById('statusText');
             const lastCheck = document.getElementById('lastCheck');
 
-            if (!followersFile || !followingFile) {
+            if (!zipFile) {
                 resultsDiv.innerHTML = `
                     <div class="text-center py-8">
                         <div class="text-3xl mb-3">⚠️</div>
                         <p class="dm-mono-regular text-lg">
-                            UPLOAD KEDUA FILE TERLEBIH DAHULU
+                            UPLOAD FILE ZIP TERLEBIH DAHULU
                         </p>
                     </div>
                 `;
@@ -67,10 +66,15 @@
                 statusText.textContent = 'PROCESSING';
                 statusText.className = 'dm-mono-medium bg-yellow-500 text-white px-2 py-1 text-sm';
 
-                const [followersData, followingData] = await Promise.all([
-                    loadFileAsJSON(followersFile),
-                    loadFileAsJSON(followingFile)
-                ]);
+                // Extract JSON files from ZIP
+                const followersData = await extractJSONFromZip(
+                    zipFile, 
+                    'connections/followers_and_following/followers_1.json'
+                );
+                const followingData = await extractJSONFromZip(
+                    zipFile, 
+                    'connections/followers_and_following/following.json'
+                );
 
                 // Extract usernames
                 const followingUsernames = loadFollowing(followingData);
@@ -195,13 +199,11 @@ Coba di: ${window.location.href}`;
             });
 
             // File input styling
-            const fileInputs = document.querySelectorAll('input[type="file"]');
-            fileInputs.forEach(input => {
-                input.addEventListener('change', function (e) {
-                    if (e.target.files.length > 0) {
-                        e.target.classList.add('bg-green-100');
-                    }
-                });
+            const zipInput = document.getElementById('zipFile');
+            zipInput.addEventListener('change', function (e) {
+                if (e.target.files.length > 0) {
+                    e.target.classList.add('bg-green-100');
+                }
             });
         });
 
