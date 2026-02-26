@@ -11,6 +11,7 @@
         href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap"
         rel="stylesheet">
         <link rel="stylesheet" href="src/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         .dm-mono-light {
             font-family: "DM Mono", monospace;
@@ -115,30 +116,20 @@
                     <h2 class="dm-mono-medium text-2xl mb-6">UPLOAD</h2>
 
                     <div class="space-y-5">
-                        <!-- Followers File -->
+                        <!-- ZIP File -->
                         <div>
                             <label class="dm-mono-regular block mb-2 text-lg">
-                                📁 FOLLOWERS
+                                📦 INSTAGRAM DATA (ZIP)
                             </label>
-                            <input type="file" id="followersFile" accept=".json" class="brutal-input w-full p-3 dm-mono-regular
+                            <input type="file" id="zipFile" accept=".zip" class="brutal-input w-full p-3 dm-mono-regular
                                 file:mr-4 file:py-2 file:px-4 
                                 file:border-2 file:border-black 
                                 file:bg-black file:text-yellow-300
                                 file:dm-mono-regular
                                 hover:file:bg-gray-800">
-                        </div>
-
-                        <!-- Following File -->
-                        <div>
-                            <label class="dm-mono-regular block mb-2 text-lg">
-                                📁 FOLLOWING
-                            </label>
-                            <input type="file" id="followingFile" accept=".json" class="brutal-input w-full p-3 dm-mono-regular
-                                file:mr-4 file:py-2 file:px-4 
-                                file:border-2 file:border-black 
-                                file:bg-black file:text-yellow-300
-                                file:dm-mono-regular
-                                hover:file:bg-gray-800">
+                            <p class="text-xs dm-mono-light mt-2 text-gray-700">
+                                Upload file ZIP Instagram kamu.
+                            </p>
                         </div>
 
                         <!-- Process Button -->
